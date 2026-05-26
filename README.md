@@ -40,11 +40,37 @@ This lets you pin specific models per role via `opencode.json`.
 
 In `~/.config/opencode/opencode.json`:
 
+**Option A — always current (recommended):**
+
 ```json
 {
   "plugin": [
-    "superpowers@git+https://github.com/AlexMKX/superpowers.git#<version>"
-  ],
+    "superpowers@git+https://github.com/AlexMKX/superpowers.git#latest"
+  ]
+}
+```
+
+The `latest` tag is moved to the newest release on every workflow run.
+Note: git-based npm/bun packages are cached locally; you may need to clear
+`~/.cache/opencode/node_modules` (or equivalent) after a new release lands
+for the update to take effect.
+
+**Option B — pin to a specific release:**
+
+```json
+{
+  "plugin": [
+    "superpowers@git+https://github.com/AlexMKX/superpowers.git#v5.1.0-202605260727"
+  ]
+}
+```
+
+Pick a version from [Releases](https://github.com/AlexMKX/superpowers/releases).
+
+**Agent config (same for both options):**
+
+```json
+{
   "agent": {
     "implementer": {
       "model": "anthropic/claude-sonnet-4-6",
@@ -57,8 +83,6 @@ In `~/.config/opencode/opencode.json`:
   }
 }
 ```
-
-Pick a `<version>` from [Releases](https://github.com/AlexMKX/superpowers/releases).
 
 ## How it works
 

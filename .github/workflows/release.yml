@@ -164,6 +164,9 @@ jobs:
           git push origin "release/${VERSION}"
           git tag "${VERSION}"
           git push origin "${VERSION}"
+          # Move the floating `latest` tag to this release
+          git tag -f latest
+          git push origin latest --force
 
       - name: Generate release notes
         id: notes
@@ -196,14 +199,16 @@ jobs:
             echo
             echo "## Installation"
             echo
-            echo 'In `opencode.json`:'
+            echo 'Pin to this exact release:'
             echo
             echo '```json'
-            echo '{'
-            echo '  "plugin": ['
-            echo "    \"superpowers@git+https://github.com/${REPO}.git#${VERSION}\""
-            echo '  ]'
-            echo '}'
+            echo '{ "plugin": ["superpowers@git+https://github.com/'"${REPO}"'.git#'"${VERSION}"'"] }'
+            echo '```'
+            echo
+            echo 'Or always track the latest release (clears npm/bun cache on each opencode restart):'
+            echo
+            echo '```json'
+            echo '{ "plugin": ["superpowers@git+https://github.com/'"${REPO}"'.git#latest"] }'
             echo '```'
           } > release-notes.md
           cat release-notes.md
