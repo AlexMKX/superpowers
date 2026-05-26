@@ -1,3 +1,8 @@
+# Clones obra/superpowers at a tag, applies patches/*.patch, publishes
+# the result as an orphan branch + tag + GitHub Release.
+# Version format: {upstream_tag}-{YYYYMMDDHHMM} (UTC).
+# See docs/superpowers/specs/ for the full design.
+
 name: Release
 
 on:
