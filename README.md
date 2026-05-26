@@ -12,13 +12,13 @@ Yet out of some lingering courtesy to both nature and the budget, it may be wise
 But, cheap models can provide low-quality results.
 
 Current superpowers flow uses general-purpose tool for the subagents. If you use expencive model for brainstorming (correct), 
-and if you don't switch model during implementation stage - all gruntwork will be done by expencive model, so results most likely suffer. 
+and if you don't switch model during implementation stage - all gruntwork will be done by expencive model.
 
 You can change the subagent-driven stage to the cheaper model (say, sonnet) and it would save you costs and electricity. 
-In this case, the review stage, which is a part of development process will be executed by sonnet as well. 
+In this case, the review stage, which is a part of development process will be executed by sonnet as well. So results most likely suffer. 
 
 To maintain better quality we prefer following roles:
-Architecture/brainstorming : Opus; Coding: Sonnet; Reviewing: Opus (or GPT as a second-eyes).
+Architecture/brainstorming : Opus; Coding: Sonnet; Reviewing: Opus (or GPT as a second pair of eyes).
 
 ## The limitations of superpowers
 
